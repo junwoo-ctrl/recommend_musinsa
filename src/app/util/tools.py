@@ -26,6 +26,7 @@ class BasicConfig:
 
 @dataclass
 class DevConfig(BasicConfig):
+    # To be migrate third-party secret store
     PROJ_RELOAD: bool = True
     user: str = 'musinsa'
     password: str = 'xhakxhsoaql1!'
@@ -35,6 +36,7 @@ class DevConfig(BasicConfig):
 
 @dataclass
 class ProdConfig(BasicConfig):
+    # To be migrate third-party secret store
     PROJ_RELOAD: bool = False
     user: str = 'musinsa'
     password: str = 'xhakxhsoaql1!'

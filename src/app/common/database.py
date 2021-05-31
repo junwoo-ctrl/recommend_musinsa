@@ -11,9 +11,6 @@ class Database:
     
     def __init__(self):
         self.db = None
-        self.engine = None
-        self.session = None
-
         self.config: Config = Config.get_config()
         self.url: str = self._get_endpoint()
         self._connect_db()
