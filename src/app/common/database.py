@@ -1,10 +1,10 @@
-import logging
 from typing import List, Dict
 
 import dataset
 from dataset import Database
 
 from src.app.util.tools import Config
+from src.app.util.logger import RecommendLogger as Logger
 
 
 class Database:
@@ -13,12 +13,13 @@ class Database:
         self.db = None
         self.config: Config = Config.get_config()
         self.url: str = self._get_endpoint()
+        self.logger = Logger(__name__)
         self._connect_db()
 
     def _connect_db(self) -> Database:
         db: Database = self._connect()
         self.db = db
-        logging.info('database connect.!')
+        self.logger.info('database connect.!')
 
     def get_db(self) -> Database:
         if self.db is None:
@@ -46,7 +47,7 @@ class Database:
         try:
             resp = [r for r in self.db.query(statement)]
         except Exception as e:
-            logging.info(str(e))
+            self.logger.error(str(e))
         return resp
 
     def _close(self) -> bool:
@@ -60,5 +61,5 @@ class Database:
             resp = [r for r in self.db.query(statement)]
             return resp
         except Exception as e:
-            print(str(e))
+            self.logger.error(str(e))
             return []

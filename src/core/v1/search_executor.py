@@ -5,9 +5,11 @@ from src.core.interfaces.abstract_search_executor import AbstractSearchExecutor
 from src.core.v1.query_manager import QueryManager
 from src.app.common.data import RecommendWord, RequestSearchWord, RecommendResult
 from src.app.util.tools import EnvTool
+from src.app.util.logger import RecommendLogger as Logger
 
 
 class DatabaseSearchExecutor(AbstractSearchExecutor):
+    logger = Logger(__name__)
     
     @staticmethod
     def search(request_search_word: RequestSearchWord) -> List[RecommendResult]:
@@ -30,17 +32,21 @@ class DatabaseSearchExecutor(AbstractSearchExecutor):
             postfix_recommend,
             ngram_recommend,
         ]
+
+        DatabaseSearchExecutor.logger.info("successfully find recommend word list!")
         return resultset
 
     @staticmethod
     def _rearrange_recommend_list(provided_words: List[List[RecommendResult]], num_limit_word: int) -> List[RecommendResult]:
         all_recommended = sorted([ele2 for ele in provided_words for ele2 in ele])
+        DatabaseSearchExecutor.logger.info(f"get only limited number of {num_limit_word} word!")
         return all_recommended
 
 
 # Todo: refactor
 class PrefixRecommendProvider:
     findby: str = 'findby prefix pattern'
+    logger = Logger(__name__)
     prefix_query_string = """
         SELECT id, recommend_word
         FROM {env}.recommend_store
@@ -55,6 +61,7 @@ class PrefixRecommendProvider:
         )
         query_resultset: List[str] = [r['recommend_word'] for r in QueryManager.query(statement)]
         query_resultset: List[RecommendResult] = [PrefixRecommendProvider._convert_to_obj(r) for r in query_resultset]
+        PrefixRecommendProvider.logger.info(f"successfully get recommend words {PrefixRecommendProvider.findby}.")
         return query_resultset
 
     @staticmethod
@@ -68,6 +75,7 @@ class PrefixRecommendProvider:
 
 class PostfixRecommendProvider:
     findby: str = "findby postfix pattern"
+    logger = Logger(__name__)
     postfix_query_string = """
         SELECT id, recommend_word
         FROM {env}.recommend_store
@@ -82,6 +90,7 @@ class PostfixRecommendProvider:
         )
         query_resultset: List[str] = [r['recommend_word'] for r in QueryManager.query(statement)]
         query_resultset: List[RecommendResult] = [PostfixRecommendProvider._convert_to_obj(r) for r in query_resultset]
+        PostfixRecommendProvider.logger.info(f"successfully get recommend words {PostfixRecommendProvider.findby}.")
         return query_resultset
 
     @staticmethod
@@ -95,6 +104,7 @@ class PostfixRecommendProvider:
 
 class InfixRecommendProvider:
     findby: str = "findby infix pattern"
+    logger = Logger(__name__)
     infix_query_string = """
         SELECT id, recommend_word
         FROM {env}.recommend_store
@@ -109,6 +119,7 @@ class InfixRecommendProvider:
         )
         query_resultset: List[str] = [r['recommend_word'] for r in QueryManager.query(statement)]
         query_resultset: List[RecommendResult] = [InfixRecommendProvider._convert_to_obj(r) for r in query_resultset]
+        InfixRecommendProvider.logger.info(f"successfully get recommend words {InfixRecommendProvider.findby}.")
         return query_resultset
 
     @staticmethod
@@ -122,6 +133,7 @@ class InfixRecommendProvider:
 
 class NgramRecommendProvider:
     findby: str = "findby ngram pattern"
+    logger = Logger(__name__)
     ngram_query_string = """
         SELECT *
         FROM {env}.recommend_store
@@ -136,6 +148,7 @@ class NgramRecommendProvider:
         )
         query_resultset: List[str] = [r['recommend_word'] for r in QueryManager.query(statement)]
         query_resultset: List[RecommendResult] = [NgramRecommendProvider._convert_to_obj(r) for r in query_resultset]
+        NgramRecommendProvider.logger.info(f"successfully get recommend words {NgramRecommendProvider.findby}.")
         return query_resultset
 
     @staticmethod

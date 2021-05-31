@@ -7,6 +7,7 @@ from src.core.interfaces.abstract_search_executor import AbstractSearchExecutor
 from src.core.v1.keyword_validator import KeywordValidator
 from src.core.v1.search_executor import DatabaseSearchExecutor
 from src.app.common.data import RecommendWord, RequestSearchWord, RecommendResult
+from src.app.util.logger import RecommendLogger as Logger
 
 
 class SimilarKeywordRecommender(AbsKeyRecommend):
@@ -18,11 +19,13 @@ class SimilarKeywordRecommender(AbsKeyRecommend):
     ):
         self.keyword_validator: AbstractKeywordValidator = keyword_validator()
         self.search_executor: AbstractSearchExecutor = search_executor
+        self.logger = Logger(__name__)
 
     def search(self, request_search_word: RequestSearchWord) -> List[RecommendWord]:
         request_search_word: RequestSearchWord = self._validate_requested_word(request_search_word)
         recommend_result_list: List[RecommendResult] = self._search(request_search_word)
         recommend_list: List[RecommendWord] = list(map(self._convert_recommend_result, recommend_result_list))
+        self.logger.info("successfully get all recommend words by service.")
         return recommend_list
  
     def _search(self, request_search_word: RequestSearchWord) -> List[RecommendWord]:

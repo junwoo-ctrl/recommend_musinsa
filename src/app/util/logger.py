@@ -3,7 +3,7 @@ import sys
 import logging
 from logging import DEBUG, INFO, ERROR
 
-class MyLogger(object):
+class RecommendLogger(object):
     def __init__(self, name, format="%(asctime)s | %(levelname)s | %(message)s", level=INFO):
         self.format = format
         self.level = level

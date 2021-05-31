@@ -3,11 +3,13 @@ import arrow
 
 from src.core.interfaces.abstract_keyword_validator import AbstractKeywordValidator as AKValidator
 from src.app.common.data import RecommendWord, RequestSearchWord
+from src.app.util.logger import RecommendLogger as Logger
 
 
 class KeywordValidator(AKValidator):
     
     def __init__(self):
+        self.logger = Logger(__name__)
         self.word: RequestSearchWord = None
         self.kst_tzoffset: int = 540
         self.time_bound: int = 3
@@ -21,31 +23,31 @@ class KeywordValidator(AKValidator):
 
         if time_interval >= self.time_bound:
             # To be implemneted more complex rule.
-            print('time bound.')
+            self.logger.warn("time out")
         return self
 
     def _validate_purpose(self):
         purpose = self.word.purpose
         if purpose == self.purpose:
-            print('statisfy purpose.')
+            self.logger.warn("statisfy purpose.")
         else:
             raise NotImplementedError(f"Not implemented {purpose} application.")
         return self
             
     def _validate_message(self):
         if self.word.message is not None:
-            print('correct message.')
+            self.logger.info("correct message type.")
         return self
 
     def _validate_word(self):
         if self.word.word is not None:
-            print('correct word.')
+            self.logger.info("correct word type.")
         return self
 
     def _validate_request_from(self):
         request_from = self.word.request_from
         if request_from == self.request_from:
-            print('correct source.')
+            self.logger.info("correct request source.")
         return self
 
     def validate(self, request_search_word: RequestSearchWord) -> RequestSearchWord:
