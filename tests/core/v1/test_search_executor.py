@@ -5,7 +5,7 @@ from core.v1.search_executor import (
     PrefixRecommendProvider,
     InfixRecommendProvider,
     PostfixRecommendProvider,
-    NgramfixRecommendProvider,
+    NgramRecommendProvider,
 )
 
 
@@ -74,7 +74,7 @@ def test_simple_obj_convert():
     assert RecommendResult.findby == 'findby infix pattern'
 
     # ngram provider -> obj
-    actual_recommend_result = NgramfixRecommendProvider._convert_to_obj(mock_query_result)
+    actual_recommend_result = NgramRecommendProvider._convert_to_obj(mock_query_result)
     assert isinstance(actual_recommend, RecommendResult)
     assert RecommendResult.findby == 'findby ngram pattern'
 
