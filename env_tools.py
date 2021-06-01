@@ -76,6 +76,23 @@ def test():
     run_commands(commands)
 
 
+def setup():
+    git_commit_id = get_git_commit_id()
+    image_latest = get_image_latest()
+    base_image = get_base_image_name()
+    build_env = EnvTool.get_env()
+
+    commands = f"""
+        set -x
+        set -e
+        echo test : {image_latest} start!
+        docker run -v `pwd`/tests/:/app/tests -v `pwd`/src:/app/src -e ENV={build_env} \
+        {image_latest} setup
+    """
+    run_commands(commands)
+
+
+
 
 if __name__ == '__main__':
     run({
