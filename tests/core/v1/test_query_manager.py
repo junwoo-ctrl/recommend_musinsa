@@ -1,5 +1,5 @@
 
-from core.v1.query_manager import QueryManager
+from server.v1.query_manager import QueryManager
 
 
 def test_query_manager_lifecycle():

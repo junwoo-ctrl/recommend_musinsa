@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from app.common.data import RequestSearchWord
+from server.common.data import RequestSearchWord
 from core.v1.keyword_validator import KeywordValidator
 
 

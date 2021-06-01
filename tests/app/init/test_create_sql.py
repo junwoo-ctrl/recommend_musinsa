@@ -1,5 +1,5 @@
 
-from app.init.create_sql import (
+from server.init.create_sql import (
     get_mock_data_set,
     get_random_postfixed_keyword,
     get_random_infixed_keyword,

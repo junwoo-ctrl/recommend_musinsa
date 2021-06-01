@@ -1,7 +1,7 @@
 from dataclasses import asdict
 
-from app.util.tools import EnvTool
-from app.util.tools import Config
+from server.util.tools import EnvTool
+from server.util.tools import Config
 
 
 def test_env_tool():

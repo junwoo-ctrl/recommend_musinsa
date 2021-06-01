@@ -1,5 +1,5 @@
 
-from app.common.data import RecommendResult, RequestSearchWord
+from server.common.data import RecommendResult, RequestSearchWord
 from core.v1.search_executor import (
     SearchExecutor,
     PrefixRecommendProvider,

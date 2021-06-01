@@ -1,7 +1,7 @@
 
 from dataset import Database as database_obj
 
-from app.common.database import Database
+from server.common.database import Database
 
 
 def test_database_lifecycle():
