@@ -86,12 +86,10 @@ def setup():
         set -x
         set -e
         echo setup : {image_latest} start!
-        docker run -v `pwd`/tests/:/app/tests -v `pwd`/src:/app/src -e ENV={build_env} \
+        docker run -v `pwd`/tests/:/app/tests -v `pwd`/src:/app/src -e ENV={build_env} -e PYTHONPATH=/app/src \
         {image_latest} setup
     """
     run_commands(commands)
-
-
 
 
 if __name__ == '__main__':
