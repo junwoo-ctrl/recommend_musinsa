@@ -70,7 +70,7 @@ def test():
         set -x
         set -e
         echo test : {image_latest} start!
-        docker run -v `pwd`/tests/:/app/tests -v `pwd`/src:/app/src -e ENV={build_env} \
+        docker run -v `pwd`/tests/:/server/tests -v `pwd`/src:/server/src -e ENV={build_env} \
         {image_latest} test
     """
     run_commands(commands)
@@ -86,7 +86,7 @@ def setup():
         set -x
         set -e
         echo test : {image_latest} start!
-        docker run -v `pwd`/tests/:/app/tests -v `pwd`/src:/app/src -e ENV={build_env} \
+        docker run -v `pwd`/tests/:/server/tests -v `pwd`/src:/server/src -e ENV={build_env} \
         {image_latest} setup
     """
     run_commands(commands)
