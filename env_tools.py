@@ -11,7 +11,7 @@ import re
 
 from clize import run
 
-from src.app.util.tools import EnvTool
+from server.util.tools import EnvTool
 
 
 def get_git_commit_id() -> str:
