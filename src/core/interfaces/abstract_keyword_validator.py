@@ -2,7 +2,7 @@
 from typing import Dict, Union
 from abc import ABC, abstractmethod
 
-from app.common.data import RequestSearchWord
+from server.common.data import RequestSearchWord
 
 
 class AbstractKeywordValidator:

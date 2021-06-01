@@ -3,8 +3,8 @@ from collections import OrderedDict
 from typing import Any, List
 
 from core.interfaces.abstract_query_manager import AbstractQueryManager as AQM
-from app.common.database import Database
-from app.util.logger import RecommendLogger as Logger
+from server.common.database import Database
+from server.util.logger import RecommendLogger as Logger
 
 
 class QueryManager(AQM):

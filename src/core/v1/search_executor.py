@@ -3,9 +3,9 @@ from typing import List, Any
 
 from core.interfaces.abstract_search_executor import AbstractSearchExecutor
 from core.v1.query_manager import QueryManager
-from app.common.data import RecommendWord, RequestSearchWord, RecommendResult
-from app.util.tools import EnvTool
-from app.util.logger import RecommendLogger as Logger
+from server.common.data import RecommendWord, RequestSearchWord, RecommendResult
+from server.util.tools import EnvTool
+from server.util.logger import RecommendLogger as Logger
 
 
 class DatabaseSearchExecutor(AbstractSearchExecutor):

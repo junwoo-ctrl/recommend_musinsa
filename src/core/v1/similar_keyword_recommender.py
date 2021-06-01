@@ -6,8 +6,8 @@ from core.interfaces.abstract_keyword_validator import AbstractKeywordValidator
 from core.interfaces.abstract_search_executor import AbstractSearchExecutor
 from core.v1.keyword_validator import KeywordValidator
 from core.v1.search_executor import DatabaseSearchExecutor
-from app.common.data import RecommendWord, RequestSearchWord, RecommendResult
-from app.util.logger import RecommendLogger as Logger
+from server.common.data import RecommendWord, RequestSearchWord, RecommendResult
+from server.util.logger import RecommendLogger as Logger
 
 
 class SimilarKeywordRecommender(AbsKeyRecommend):

@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from clize import run
 
-from app.common.data import RequestSearchWord, RecommendWord
+from server.common.data import RequestSearchWord, RecommendWord
 from core.v1.similar_keyword_recommender import SimilarKeywordRecommender
 
 

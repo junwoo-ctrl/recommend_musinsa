@@ -2,8 +2,8 @@ import random
 from typing import List, Dict
 from clize import run
 
-from app.common.database import Database
-from app.util.tools import EnvTool
+from server.common.database import Database
+from server.util.tools import EnvTool
 
 
 CREATE_RECOMMEND_TABLE_QUERY = """

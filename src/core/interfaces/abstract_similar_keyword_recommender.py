@@ -1,7 +1,7 @@
 
 from abc import ABC, abstractmethod
 
-from app.common.data import RecommendWord
+from server.common.data import RecommendWord
 
 
 class AbstractSimilarKeywordRecommender(ABC):
