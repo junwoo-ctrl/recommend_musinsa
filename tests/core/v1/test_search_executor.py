@@ -4,7 +4,7 @@ from core.v1.search_executor import (
     DatabaseSearchExecutor,
     PrefixRecommendProvider,
     InfixRecommendProvider,
-    PostfixRecommendProvier,
+    PostfixRecommendProvider,
     NgramfixRecommendProvider,
 )
 
