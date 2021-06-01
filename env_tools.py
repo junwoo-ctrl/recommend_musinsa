@@ -85,7 +85,7 @@ def setup():
     commands = f"""
         set -x
         set -e
-        echo test : {image_latest} start!
+        echo setup : {image_latest} start!
         docker run -v `pwd`/tests/:/app/tests -v `pwd`/src:/app/src -e ENV={build_env} \
         {image_latest} setup
     """
