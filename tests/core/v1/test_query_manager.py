@@ -6,5 +6,5 @@ def test_query_manager_lifecycle():
     expected = True
 
     statement = "SELECT 1"
-    actual = QueryManager.query(statement)
+    actual = [r for r in QueryManager.query(statement)]
     assert expected == actual
