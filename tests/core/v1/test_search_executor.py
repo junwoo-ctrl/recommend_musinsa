@@ -1,7 +1,7 @@
 
 from server.common.data import RecommendResult, RequestSearchWord
 from core.v1.search_executor import (
-    SearchExecutor,
+    DatabaseSearchExecutor,
     PrefixRecommendProvider,
     InfixRecommendProvider,
     PostfixRecommendProvier,
