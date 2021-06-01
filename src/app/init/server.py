@@ -6,9 +6,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from clize import run
 
-from src.app.common.data import RequestSearchWord, RecommendWord
-from src.core.v1.similar_keyword_recommender import SimilarKeywordRecommender
-from src.core.v1.keyword_validator import KeywordValidator
+from app.common.data import RequestSearchWord, RecommendWord
+from core.v1.similar_keyword_recommender import SimilarKeywordRecommender
 
 
 def init_app():

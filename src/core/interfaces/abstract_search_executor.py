@@ -1,7 +1,7 @@
 
 from abc import ABC, abstractmethod
 
-from src.app.common.data import RecommendWord, RequestSearchWord
+from app.common.data import RecommendWord, RequestSearchWord
 
 
 class AbstractSearchExecutor(ABC):

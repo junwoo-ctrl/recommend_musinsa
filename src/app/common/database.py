@@ -3,8 +3,8 @@ from typing import List, Dict
 import dataset
 from dataset import Database
 
-from src.app.util.tools import Config
-from src.app.util.logger import RecommendLogger as Logger
+from app.util.tools import Config
+from app.util.logger import RecommendLogger as Logger
 
 
 class Database:

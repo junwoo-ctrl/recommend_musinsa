@@ -1,13 +1,13 @@
 from typing import List, Dict
 from datetime import datetime
 
-from src.core.interfaces.abstract_similar_keyword_recommender import AbstractSimilarKeywordRecommender as AbsKeyRecommend
-from src.core.interfaces.abstract_keyword_validator import AbstractKeywordValidator
-from src.core.interfaces.abstract_search_executor import AbstractSearchExecutor
-from src.core.v1.keyword_validator import KeywordValidator
-from src.core.v1.search_executor import DatabaseSearchExecutor
-from src.app.common.data import RecommendWord, RequestSearchWord, RecommendResult
-from src.app.util.logger import RecommendLogger as Logger
+from core.interfaces.abstract_similar_keyword_recommender import AbstractSimilarKeywordRecommender as AbsKeyRecommend
+from core.interfaces.abstract_keyword_validator import AbstractKeywordValidator
+from core.interfaces.abstract_search_executor import AbstractSearchExecutor
+from core.v1.keyword_validator import KeywordValidator
+from core.v1.search_executor import DatabaseSearchExecutor
+from app.common.data import RecommendWord, RequestSearchWord, RecommendResult
+from app.util.logger import RecommendLogger as Logger
 
 
 class SimilarKeywordRecommender(AbsKeyRecommend):

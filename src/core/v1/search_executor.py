@@ -1,11 +1,11 @@
 import random
 from typing import List, Any
 
-from src.core.interfaces.abstract_search_executor import AbstractSearchExecutor
-from src.core.v1.query_manager import QueryManager
-from src.app.common.data import RecommendWord, RequestSearchWord, RecommendResult
-from src.app.util.tools import EnvTool
-from src.app.util.logger import RecommendLogger as Logger
+from core.interfaces.abstract_search_executor import AbstractSearchExecutor
+from core.v1.query_manager import QueryManager
+from app.common.data import RecommendWord, RequestSearchWord, RecommendResult
+from app.util.tools import EnvTool
+from app.util.logger import RecommendLogger as Logger
 
 
 class DatabaseSearchExecutor(AbstractSearchExecutor):

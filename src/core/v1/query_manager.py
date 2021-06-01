@@ -2,9 +2,9 @@
 from collections import OrderedDict
 from typing import Any, List
 
-from src.core.interfaces.abstract_query_manager import AbstractQueryManager as AQM
-from src.app.common.database import Database
-from src.app.util.logger import RecommendLogger as Logger
+from core.interfaces.abstract_query_manager import AbstractQueryManager as AQM
+from app.common.database import Database
+from app.util.logger import RecommendLogger as Logger
 
 
 class QueryManager(AQM):

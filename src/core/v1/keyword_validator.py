@@ -1,9 +1,9 @@
 
 import arrow
 
-from src.core.interfaces.abstract_keyword_validator import AbstractKeywordValidator as AKValidator
-from src.app.common.data import RecommendWord, RequestSearchWord
-from src.app.util.logger import RecommendLogger as Logger
+from core.interfaces.abstract_keyword_validator import AbstractKeywordValidator as AKValidator
+from app.common.data import RecommendWord, RequestSearchWord
+from app.util.logger import RecommendLogger as Logger
 
 
 class KeywordValidator(AKValidator):
