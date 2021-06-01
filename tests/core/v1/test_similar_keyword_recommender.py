@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from src.core.v1.similar_keyword_recommender import SimilarKeywordRecommender
-from src.app.common.data import RecommendWord, RequestSearchWord, RecommendResult
+from core.v1.similar_keyword_recommender import SimilarKeywordRecommender
+from app.common.data import RecommendWord, RequestSearchWord, RecommendResult
 
 
 def test_search_similar_keyword():

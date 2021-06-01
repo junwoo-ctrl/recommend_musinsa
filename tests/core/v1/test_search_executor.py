@@ -1,6 +1,6 @@
 
-from src.app.common.data import RecommendResult, RequestSearchWord
-from src.core.v1.search_executor import (
+from app.common.data import RecommendResult, RequestSearchWord
+from core.v1.search_executor import (
     SearchExecutor,
     PrefixRecommendProvider,
     InfixRecommendProvider,

@@ -1,7 +1,7 @@
 from datetime import datetime
 
-from src.app.common.data import RequestSearchWord
-from src.core.v1.keyword_validator import KeywordValidator
+from app.common.data import RequestSearchWord
+from core.v1.keyword_validator import KeywordValidator
 
 
 def test_keyword_validator_life_cycle():
